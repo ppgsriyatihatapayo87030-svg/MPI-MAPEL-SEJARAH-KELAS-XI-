@@ -1,0 +1,1466 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menjelajahi Masa Lalu: Memahami Konsep Dasar Ilmu Sejarah</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cinzel:wght@600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            800: '#1e293b',
+                            900: '#0f172a',
+                            950: '#020617',
+                        },
+                        cream: {
+                            50: '#fdfbf7',
+                            100: '#f7f3e9',
+                            200: '#efe6d5',
+                        },
+                        gold: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                            700: '#b45309',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['Cinzel', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            #printable-certificate, #printable-certificate * {
+                visibility: visible;
+            }
+            #printable-certificate {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+            }
+            .no-print {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-cream-50 text-slate-800 font-sans min-h-screen flex flex-col antialiased selection:bg-gold-500 selection:text-white">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="sticky top-0 z-40 bg-navy-900/95 backdrop-blur border-b border-gold-500/30 text-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Brand / Logo -->
+                <div class="flex items-center space-x-3 cursor-pointer" onclick="navigateTo('home')">
+                    <div class="w-10 h-10 rounded-lg bg-gradient-to-tr from-gold-600 to-gold-400 flex items-center justify-center text-navy-950 font-bold text-xl shadow-md">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                    <div>
+                        <h1 class="font-serif font-bold text-sm sm:text-base leading-tight tracking-wider text-gold-400">HISTORIA INTERAKTIF</h1>
+                        <p class="text-[10px] text-slate-300">SMAS Al-Hilaal Tehoru</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu Navigasi -->
+                <nav class="hidden lg:flex items-center space-x-1 text-xs font-medium">
+                    <button onclick="navigateTo('home')" class="nav-btn px-3 py-2 rounded-md hover:bg-navy-800 transition text-slate-200 hover:text-gold-400" id="nav-home"><i class="fas fa-home mr-1"></i> Beranda</button>
+                    <button onclick="navigateTo('tujuan')" class="nav-btn px-3 py-2 rounded-md hover:bg-navy-800 transition text-slate-200 hover:text-gold-400" id="nav-tujuan"><i class="fas fa-bullseye mr-1"></i> Tujuan</button>
+                    <button onclick="navigateTo('peta-konsep')" class="nav-btn px-3 py-2 rounded-md hover:bg-navy-800 transition text-slate-200 hover:text-gold-400" id="nav-peta-konsep"><i class="fas fa-sitemap mr-1"></i> Peta Konsep</button>
+                    <button onclick="navigateTo('materi')" class="nav-btn px-3 py-2 rounded-md hover:bg-navy-800 transition text-slate-200 hover:text-gold-400" id="nav-materi"><i class="fas fa-book-open mr-1"></i> Materi</button>
+                    <button onclick="navigateTo('eksplorasi')" class="nav-btn px-3 py-2 rounded-md hover:bg-navy-800 transition text-slate-200 hover:text-gold-400" id="nav-eksplorasi"><i class="fas fa-search-location mr-1"></i> Sumber</button>
+                    <button onclick="navigateTo('lab')" class="nav-btn px-3 py-2 rounded-md hover:bg-navy-800 transition text-slate-200 hover:text-gold-400" id="nav-lab"><i class="fas fa-flask mr-1"></i> Lab Sejarah</button>
+                    <button onclick="navigateTo('kuis')" class="nav-btn px-3 py-2 rounded-md hover:bg-navy-800 transition text-slate-200 hover:text-gold-400" id="nav-kuis"><i class="fas fa-question-circle mr-1"></i> Kuis</button>
+                    <button onclick="navigateTo('refleksi')" class="nav-btn px-3 py-2 rounded-md hover:bg-navy-800 transition text-slate-200 hover:text-gold-400" id="nav-refleksi"><i class="fas fa-pen-fancy mr-1"></i> Refleksi</button>
+                    <button onclick="navigateTo('glosarium')" class="nav-btn px-3 py-2 rounded-md hover:bg-navy-800 transition text-slate-200 hover:text-gold-400" id="nav-glosarium"><i class="fas fa-list-alt mr-1"></i> Glosarium</button>
+                    <button onclick="navigateTo('kelas')" class="nav-btn px-3 py-2 rounded-md hover:bg-navy-800 transition text-slate-200 hover:text-gold-400" id="nav-kelas"><i class="fas fa-users mr-1"></i> Info Kelas</button>
+                    <button onclick="navigateTo('sertifikat')" class="nav-btn px-3 py-2 rounded-md bg-gold-500/20 text-gold-400 border border-gold-500/50 hover:bg-gold-500 hover:text-navy-950 font-semibold transition" id="nav-sertifikat"><i class="fas fa-award mr-1"></i> Sertifikat</button>
+                </nav>
+
+                <!-- Progress Indicator & Mobile Menu Button -->
+                <div class="flex items-center space-x-3">
+                    <div class="hidden sm:flex flex-col items-end">
+                        <div class="text-[10px] text-slate-400">Progres Belajar</div>
+                        <div class="w-24 bg-navy-800 rounded-full h-2 mt-1 border border-slate-700">
+                            <div id="overall-progress-bar" class="bg-gradient-to-r from-gold-500 to-amber-400 h-1.5 rounded-full transition-all duration-500" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-md text-slate-300 hover:text-white hover:bg-navy-800 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-navy-950 border-b border-gold-500/20 px-4 pt-2 pb-4 space-y-1 text-sm">
+            <button onclick="navigateTo('home'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-slate-200 hover:bg-navy-800"><i class="fas fa-home w-6"></i> Beranda</button>
+            <button onclick="navigateTo('tujuan'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-slate-200 hover:bg-navy-800"><i class="fas fa-bullseye w-6"></i> Tujuan Pembelajaran</button>
+            <button onclick="navigateTo('peta-konsep'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-slate-200 hover:bg-navy-800"><i class="fas fa-sitemap w-6"></i> Peta Konsep</button>
+            <button onclick="navigateTo('materi'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-slate-200 hover:bg-navy-800"><i class="fas fa-book-open w-6"></i> Modul Materi</button>
+            <button onclick="navigateTo('eksplorasi'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-slate-200 hover:bg-navy-800"><i class="fas fa-search-location w-6"></i> Eksplorasi Sumber</button>
+            <button onclick="navigateTo('lab'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-slate-200 hover:bg-navy-800"><i class="fas fa-flask w-6"></i> Laboratorium Sejarah</button>
+            <button onclick="navigateTo('kuis'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-slate-200 hover:bg-navy-800"><i class="fas fa-question-circle w-6"></i> Kuis Interaktif</button>
+            <button onclick="navigateTo('refleksi'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-slate-200 hover:bg-navy-800"><i class="fas fa-pen-fancy w-6"></i> Refleksi</button>
+            <button onclick="navigateTo('glosarium'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-slate-200 hover:bg-navy-800"><i class="fas fa-list-alt w-6"></i> Glosarium & Pustaka</button>
+            <button onclick="navigateTo('kelas'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-slate-200 hover:bg-navy-800"><i class="fas fa-users w-6"></i> Informasi Kelas</button>
+            <button onclick="navigateTo('sertifikat'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-gold-400 font-semibold bg-gold-500/10 border border-gold-500/30"><i class="fas fa-award w-6"></i> Cetak Sertifikat</button>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="flex-grow">
+        
+        <!-- SECTION 1: HOME / LANDING PAGE -->
+        <section id="sec-home" class="view-section transition-all duration-300">
+            <!-- Hero Banner -->
+            <div class="relative bg-navy-950 text-white overflow-hidden py-20 px-4 sm:px-6 lg:px-8 border-b border-gold-500/20">
+                <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#f59e0b_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                <div class="max-w-5xl mx-auto relative z-10 text-center">
+                    <span class="inline-block px-4 py-1.5 rounded-full bg-gold-500/20 border border-gold-500/40 text-gold-400 text-xs sm:text-sm font-medium uppercase tracking-widest mb-6">
+                        Media Pembelajaran Digital Interaktif
+                    </span>
+                    <h1 class="font-serif text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight mb-4">
+                        MENJELAJAHI MASA LALU:<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-gold-400 via-amber-300 to-gold-500">MEMAHAMI KONSEP DASAR ILMU SEJARAH</span>
+                    </h1>
+                    <p class="text-slate-300 text-base sm:text-lg max-w-3xl mx-auto mb-8 font-light leading-relaxed">
+                        Pendekatan interaktif, eksploratif, dan kontekstual untuk memahami ruang, waktu, perubahan, serta metodologi penelitian sejarah secara ilmiah.
+                    </p>
+
+                    <!-- Identitas Pengembang -->
+                    <div class="inline-flex items-center space-x-4 bg-navy-900/80 border border-slate-700/80 rounded-2xl p-4 mb-10 shadow-xl backdrop-blur">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-gold-500 to-amber-300 flex items-center justify-center text-navy-950 font-bold text-xl shadow">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <div class="text-left">
+                            <p class="text-xs text-slate-400 uppercase tracking-wider">Disusun Oleh:</p>
+                            <p class="text-sm sm:text-base font-bold text-white">Acifah Hatapayo, S.Pd., Gr.</p>
+                            <p class="text-xs text-gold-400">SMAS Al-Hilaal Tehoru</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <button onclick="navigateTo('tujuan')" class="inline-flex items-center space-x-3 px-8 py-4 rounded-xl bg-gradient-to-r from-gold-500 to-gold-600 text-navy-950 font-bold text-lg hover:from-gold-400 hover:to-gold-500 transform hover:-translate-y-0.5 shadow-lg shadow-gold-500/20 transition duration-200">
+                            <span>MULAI BELAJAR</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Visual Decorative Cards (Artefak, Arsip, Garis Waktu) -->
+            <div class="max-w-6xl mx-auto px-4 -mt-10 relative z-20 grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-2xl shadow-xl border border-slate-100 flex flex-col items-center text-center">
+                    <div class="w-14 h-14 rounded-2xl bg-amber-50 text-gold-600 flex items-center justify-center text-2xl mb-4">
+                        <i class="fas fa-scroll"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-lg mb-2">Arsip & Naskah Kuno</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">Menyibak lembaran catatan tertulis dan dokumen bernilai sejarah sebagai rekam jejak peristiwa peradaban.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-xl border border-slate-100 flex flex-col items-center text-center">
+                    <div class="w-14 h-14 rounded-2xl bg-amber-50 text-gold-600 flex items-center justify-center text-2xl mb-4">
+                        <i class="fas fa-vihara"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-lg mb-2">Prasasti & Artefak</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">Menganalisis peninggalan kebendaan nyata yang menjadi bukti autentik kehidupan masyarakat masa lalu.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-xl border border-slate-100 flex flex-col items-center text-center">
+                    <div class="w-14 h-14 rounded-2xl bg-amber-50 text-gold-600 flex items-center justify-center text-2xl mb-4">
+                        <i class="fas fa-stream"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-lg mb-2">Garis Waktu & Konsep</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">Mengurutkan peristiwa secara kronologis untuk memahami keterkaitan sebab-akibat dan keberlanjutan.</p>
+                </div>
+            </div>
+
+            <!-- Petunjuk Singkat -->
+            <div class="max-w-4xl mx-auto px-4 py-16 text-center">
+                <h2 class="text-2xl font-bold text-navy-900 mb-4">Fitur Media Pembelajaran Interaktif</h2>
+                <p class="text-slate-600 text-sm max-w-2xl mx-auto mb-8">
+                    Website ini dilengkapi dengan modul bacaan, latihan interaktif, laboratorium riset sejarah sederhana, kuis otomatis, serta sertifikat resmi yang siap Anda cetak setelah menyelesaikan seluruh alur aktivitas.
+                </p>
+                <div class="flex flex-wrap justify-center gap-3">
+                    <span class="px-3 py-1.5 bg-slate-200 text-slate-700 rounded-lg text-xs font-medium"><i class="fas fa-check-circle text-green-600 mr-1"></i> Respon Interaktif</span>
+                    <span class="px-3 py-1.5 bg-slate-200 text-slate-700 rounded-lg text-xs font-medium"><i class="fas fa-check-circle text-green-600 mr-1"></i> Laboratorium Digital</span>
+                    <span class="px-3 py-1.5 bg-slate-200 text-slate-700 rounded-lg text-xs font-medium"><i class="fas fa-check-circle text-green-600 mr-1"></i> Evaluasi Otomatis</span>
+                    <span class="px-3 py-1.5 bg-slate-200 text-slate-700 rounded-lg text-xs font-medium"><i class="fas fa-check-circle text-green-600 mr-1"></i> Cetak Sertifikat</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: TUJUAN PEMBELAJARAN -->
+        <section id="sec-tujuan" class="view-section hidden py-10 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+            <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-xl border border-slate-100">
+                <div class="flex items-center space-x-3 mb-6">
+                    <div class="w-12 h-12 rounded-xl bg-gold-500/10 text-gold-600 flex items-center justify-center text-2xl font-bold">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-navy-900">Tujuan Pembelajaran</h2>
+                        <p class="text-xs text-slate-500">Capaian Pembelajaran & Target Kompetensi Peserta Didik SMA</p>
+                    </div>
+                </div>
+
+                <div class="p-4 bg-amber-50 rounded-2xl border border-amber-200/60 mb-8 flex items-start space-x-3">
+                    <i class="fas fa-info-circle text-amber-600 text-xl mt-0.5"></i>
+                    <p class="text-xs text-amber-900 leading-relaxed">
+                        Melalui media pembelajaran interaktif ini, peserta didik diarahkan untuk menguasai landasan berpikir ilmiah dalam ilmu sejarah, menganalisis bukti, serta menerapkan metodologi sejarah dalam kehidupan sehari-hari.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-4 rounded-2xl border border-slate-200 hover:border-gold-400 transition bg-cream-50/50 flex items-start space-x-3">
+                        <span class="w-7 h-7 rounded-full bg-navy-900 text-white flex items-center justify-center text-xs font-bold flex-shrink-0">1</span>
+                        <p class="text-xs sm:text-sm text-slate-700 font-medium">Menjelaskan pengertian sejarah sebagai peristiwa masa lalu dan sebagai disiplin ilmu ilmiah.</p>
+                    </div>
+                    <div class="p-4 rounded-2xl border border-slate-200 hover:border-gold-400 transition bg-cream-50/50 flex items-start space-x-3">
+                        <span class="w-7 h-7 rounded-full bg-navy-900 text-white flex items-center justify-center text-xs font-bold flex-shrink-0">2</span>
+                        <p class="text-xs sm:text-sm text-slate-700 font-medium">Mengidentifikasi manusia, ruang, dan waktu sebagai tiga unsur pilar utama dalam peristiwa sejarah.</p>
+                    </div>
+                    <div class="p-4 rounded-2xl border border-slate-200 hover:border-gold-400 transition bg-cream-50/50 flex items-start space-x-3">
+                        <span class="w-7 h-7 rounded-full bg-navy-900 text-white flex items-center justify-center text-xs font-bold flex-shrink-0">3</span>
+                        <p class="text-xs sm:text-sm text-slate-700 font-medium">Menjelaskan konsep kronologi, periodisasi, dan kronik dalam pengorganisasian peristiwa sejarah.</p>
+                    </div>
+                    <div class="p-4 rounded-2xl border border-slate-200 hover:border-gold-400 transition bg-cream-50/50 flex items-start space-x-3">
+                        <span class="w-7 h-7 rounded-full bg-navy-900 text-white flex items-center justify-center text-xs font-bold flex-shrink-0">4</span>
+                        <p class="text-xs sm:text-sm text-slate-700 font-medium">Membedakan secara tepat cara berpikir sejarah berpola diakronis dan sinkronis.</p>
+                    </div>
+                    <div class="p-4 rounded-2xl border border-slate-200 hover:border-gold-400 transition bg-cream-50/50 flex items-start space-x-3">
+                        <span class="w-7 h-7 rounded-full bg-navy-900 text-white flex items-center justify-center text-xs font-bold flex-shrink-0">5</span>
+                        <p class="text-xs sm:text-sm text-slate-700 font-medium">Mengidentifikasi konsep perubahan, keberlanjutan, serta hubungan sebab-akibat antarkejadian.</p>
+                    </div>
+                    <div class="p-4 rounded-2xl border border-slate-200 hover:border-gold-400 transition bg-cream-50/50 flex items-start space-x-3">
+                        <span class="w-7 h-7 rounded-full bg-navy-900 text-white flex items-center justify-center text-xs font-bold flex-shrink-0">6</span>
+                        <p class="text-xs sm:text-sm text-slate-700 font-medium">Memahami pengertian serta klasifikasi sumber sejarah (primer vs sekunder, bentuk sumber).</p>
+                    </div>
+                    <div class="p-4 rounded-2xl border border-slate-200 hover:border-gold-400 transition bg-cream-50/50 flex items-start space-x-3">
+                        <span class="w-7 h-7 rounded-full bg-navy-900 text-white flex items-center justify-center text-xs font-bold flex-shrink-0">7</span>
+                        <p class="text-xs sm:text-sm text-slate-700 font-medium">Menjelaskan 5 tahapan standar metodologi penelitian sejarah secara sistematis.</p>
+                    </div>
+                    <div class="p-4 rounded-2xl border border-slate-200 hover:border-gold-400 transition bg-cream-50/50 flex items-start space-x-3">
+                        <span class="w-7 h-7 rounded-full bg-navy-900 text-white flex items-center justify-center text-xs font-bold flex-shrink-0">8</span>
+                        <p class="text-xs sm:text-sm text-slate-700 font-medium">Menerapkan konsep dasar ilmu sejarah untuk menganalisis sejarah lokal/lingkungan sekitar.</p>
+                    </div>
+                </div>
+
+                <div class="mt-8 pt-6 border-t border-slate-100 flex justify-between items-center">
+                    <button onclick="markStepComplete('tujuan'); navigateTo('peta-konsep');" class="px-6 py-3 rounded-xl bg-navy-900 text-white text-sm font-semibold hover:bg-navy-800 transition flex items-center space-x-2 ml-auto">
+                        <span>Lanjut ke Peta Konsep</span>
+                        <i class="fas fa-chevron-right text-xs"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: PETA KONSEP -->
+        <section id="sec-peta-konsep" class="view-section hidden py-10 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+            <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-xl border border-slate-100">
+                <div class="flex items-center space-x-3 mb-6">
+                    <div class="w-12 h-12 rounded-xl bg-gold-500/10 text-gold-600 flex items-center justify-center text-2xl font-bold">
+                        <i class="fas fa-sitemap"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-navy-900">Peta Konsep Pembelajaran</h2>
+                        <p class="text-xs text-slate-500">Struktur Holistik Konsep Dasar Ilmu Sejarah</p>
+                    </div>
+                </div>
+
+                <!-- Interactive Concept Diagram -->
+                <div class="bg-navy-950 p-6 sm:p-8 rounded-2xl text-white overflow-x-auto custom-scrollbar border border-slate-800">
+                    <div class="min-w-[700px] flex flex-col items-center space-y-6">
+                        
+                        <!-- Main Node -->
+                        <div class="px-6 py-3 bg-gradient-to-r from-gold-500 to-amber-500 text-navy-950 font-extrabold text-lg rounded-2xl shadow-lg border-2 border-gold-300">
+                            KONSEP DASAR ILMU SEJARAH
+                        </div>
+
+                        <!-- Level 1 Connectors -->
+                        <div class="w-3/4 border-t-2 border-dashed border-gold-500/50 relative h-4">
+                            <div class="absolute left-0 top-0 w-0.5 h-4 bg-gold-500/50"></div>
+                            <div class="absolute left-1/3 top-0 w-0.5 h-4 bg-gold-500/50"></div>
+                            <div class="absolute left-2/3 top-0 w-0.5 h-4 bg-gold-500/50"></div>
+                            <div class="absolute right-0 top-0 w-0.5 h-4 bg-gold-500/50"></div>
+                        </div>
+
+                        <!-- Level 1 Nodes -->
+                        <div class="grid grid-cols-4 gap-4 w-full">
+                            <div class="bg-navy-900 p-4 rounded-xl border border-gold-500/30 text-center">
+                                <h4 class="font-bold text-gold-400 text-xs sm:text-sm mb-2"><i class="fas fa-cube mr-1"></i> Hakikat & Unsur</h4>
+                                <ul class="text-[11px] text-slate-300 space-y-1">
+                                    <li>- Pengertian Sejarah</li>
+                                    <li>- Manusia (Subjek)</li>
+                                    <li>- Ruang (Dimensi Spasial)</li>
+                                    <li>- Waktu (Dimensi Temporal)</li>
+                                </ul>
+                            </div>
+                            <div class="bg-navy-900 p-4 rounded-xl border border-gold-500/30 text-center">
+                                <h4 class="font-bold text-gold-400 text-xs sm:text-sm mb-2"><i class="fas fa-clock mr-1"></i> Konsep Waktu</h4>
+                                <ul class="text-[11px] text-slate-300 space-y-1">
+                                    <li>- Kronologi & Kronik</li>
+                                    <li>- Periodisasi</li>
+                                    <li>- Perubahan & Keberlanjutan</li>
+                                    <li>- Kausalitas (Sebab-Akibat)</li>
+                                </ul>
+                            </div>
+                            <div class="bg-navy-900 p-4 rounded-xl border border-gold-500/30 text-center">
+                                <h4 class="font-bold text-gold-400 text-xs sm:text-sm mb-2"><i class="fas fa-brain mr-1"></i> Cara Berpikir</h4>
+                                <ul class="text-[11px] text-slate-300 space-y-1">
+                                    <li>- Diakronis (Memanjang Waktu)</li>
+                                    <li>- Sinkronis (Meluas Ruang)</li>
+                                    <li>- Komparatif & Terstruktur</li>
+                                </ul>
+                            </div>
+                            <div class="bg-navy-900 p-4 rounded-xl border border-gold-500/30 text-center">
+                                <h4 class="font-bold text-gold-400 text-xs sm:text-sm mb-2"><i class="fas fa-microscope mr-1"></i> Sumber & Metode</h4>
+                                <ul class="text-[11px] text-slate-300 space-y-1">
+                                    <li>- Sumber Primer & Sekunder</li>
+                                    <li>- Heuristik & Kritik</li>
+                                    <li>- Interpretasi & Historiografi</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 flex justify-between items-center">
+                    <button onclick="navigateTo('tujuan')" class="px-5 py-2.5 rounded-xl border border-slate-300 text-slate-600 text-sm font-semibold hover:bg-slate-50 transition">Kembali</button>
+                    <button onclick="markStepComplete('peta-konsep'); navigateTo('materi');" class="px-6 py-3 rounded-xl bg-navy-900 text-white text-sm font-semibold hover:bg-navy-800 transition flex items-center space-x-2">
+                        <span>Mulai Modul Materi</span>
+                        <i class="fas fa-chevron-right text-xs"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: MODUL MATERI PEMBELAJARAN (MODUL 1-6) -->
+        <section id="sec-materi" class="view-section hidden py-10 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+            
+            <!-- Module Selection Tabs -->
+            <div class="flex overflow-x-auto space-x-2 pb-4 mb-6 custom-scrollbar">
+                <button onclick="switchModule(1)" id="mod-tab-1" class="mod-tab px-4 py-2.5 rounded-xl font-semibold text-xs sm:text-sm whitespace-nowrap transition bg-navy-900 text-white shadow">Modul 1: Hakikat Sejarah</button>
+                <button onclick="switchModule(2)" id="mod-tab-2" class="mod-tab px-4 py-2.5 rounded-xl font-semibold text-xs sm:text-sm whitespace-nowrap transition bg-white text-slate-600 border border-slate-200 hover:bg-cream-100">Modul 2: Unsur Sejarah</button>
+                <button onclick="switchModule(3)" id="mod-tab-3" class="mod-tab px-4 py-2.5 rounded-xl font-semibold text-xs sm:text-sm whitespace-nowrap transition bg-white text-slate-600 border border-slate-200 hover:bg-cream-100">Modul 3: Konsep Waktu</button>
+                <button onclick="switchModule(4)" id="mod-tab-4" class="mod-tab px-4 py-2.5 rounded-xl font-semibold text-xs sm:text-sm whitespace-nowrap transition bg-white text-slate-600 border border-slate-200 hover:bg-cream-100">Modul 4: Cara Berpikir</button>
+                <button onclick="switchModule(5)" id="mod-tab-5" class="mod-tab px-4 py-2.5 rounded-xl font-semibold text-xs sm:text-sm whitespace-nowrap transition bg-white text-slate-600 border border-slate-200 hover:bg-cream-100">Modul 5: Sumber Sejarah</button>
+                <button onclick="switchModule(6)" id="mod-tab-6" class="mod-tab px-4 py-2.5 rounded-xl font-semibold text-xs sm:text-sm whitespace-nowrap transition bg-white text-slate-600 border border-slate-200 hover:bg-cream-100">Modul 6: Penelitian Sejarah</button>
+            </div>
+
+            <!-- MODULE CONTENT CONTAINER -->
+            <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-xl border border-slate-100">
+                
+                <!-- MODUL 1 -->
+                <div id="mod-content-1" class="module-body">
+                    <div class="border-b border-slate-100 pb-4 mb-6">
+                        <span class="text-xs font-bold text-gold-600 tracking-wider uppercase">Modul 1</span>
+                        <h3 class="text-2xl font-extrabold text-navy-900">Pengertian dan Hakikat Sejarah</h3>
+                    </div>
+
+                    <!-- Pemantik -->
+                    <div class="bg-amber-50 p-5 rounded-2xl border-l-4 border-gold-500 mb-6">
+                        <h4 class="font-bold text-amber-900 text-sm mb-1"><i class="fas fa-lightbulb text-gold-600 mr-2"></i>Pertanyaan Pemantik:</h4>
+                        <p class="text-xs sm:text-sm text-amber-950 italic">"Apakah setiap peristiwa di masa lalu dapat disebut sebagai peristiwa sejarah? Mengapa kisah novel fiksi sejarah seperti Perang Diponegoro berbeda dengan kajian ilmiah sejarah?"</p>
+                    </div>
+
+                    <div class="space-y-6 text-xs sm:text-sm text-slate-700 leading-relaxed">
+                        <div>
+                            <h4 class="font-bold text-navy-900 text-base mb-2">1. Asal-usul Istilah Sejarah</h4>
+                            <p>Kata <strong>Sejarah</strong> berasal dari bahasa Arab, yaitu <em>Syajaratun</em> yang berarti "pohon" atau "pohon keluarga". Istilah ini menggambarkan pertumbuhan, silsilah, dan keterkaitan antara akar (masa lalu), batang (masa kini), dan dahan/daun (masa depan). Dalam bahasa Inggris disebut <em>History</em> (dari bahasa Yunani <em>Historia</em>) yang berarti pengetahuan yang diperoleh melalui penyelidikan atau riset empiris.</p>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-navy-900 text-base mb-2">2. Pengertian Sejarah Menurut Para Ahli</h4>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-3">
+                                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+                                    <p class="font-bold text-navy-900 mb-1">Herodotus</p>
+                                    <p class="text-xs text-slate-600">"Sejarah tidak berkembang ke depan dengan tujuan pasti, melainkan bergerak seperti garis lingkaran yang tinggi rendahnya diakibatkan oleh keadaan manusia."</p>
+                                </div>
+                                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+                                    <p class="font-bold text-navy-900 mb-1">Kuntowijoyo</p>
+                                    <p class="text-xs text-slate-600">"Sejarah adalah rekonstruksi masa lalu tentang apa yang dilakukan, dikatakan, dipikirkan, dirasakan, dan dialami oleh manusia berdasarkan fakta yang teruji."</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-navy-900 text-base mb-2">3. Empat Dimensi Kedudukan Sejarah</h4>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                                <div class="p-4 rounded-xl bg-cream-100 border border-cream-200 text-center">
+                                    <i class="fas fa-bolt text-gold-600 text-xl mb-2"></i>
+                                    <h5 class="font-bold text-navy-900 text-xs">Sejarah sebagai Peristiwa</h5>
+                                    <p class="text-[11px] text-slate-600 mt-1">Kenyataan obyektif masa lalu yang unik (einmalig) dan tidak pernah terulang persis sama.</p>
+                                </div>
+                                <div class="p-4 rounded-xl bg-cream-100 border border-cream-200 text-center">
+                                    <i class="fas fa-book text-gold-600 text-xl mb-2"></i>
+                                    <h5 class="font-bold text-navy-900 text-xs">Sejarah sebagai Kisah</h5>
+                                    <p class="text-[11px] text-slate-600 mt-1">Hasil narasi atau penulisan kembali peristiwa oleh sejarawan berdasarkan interpretasi data.</p>
+                                </div>
+                                <div class="p-4 rounded-xl bg-cream-100 border border-cream-200 text-center">
+                                    <i class="fas fa-microscope text-gold-600 text-xl mb-2"></i>
+                                    <h5 class="font-bold text-navy-900 text-xs">Sejarah sebagai Ilmu</h5>
+                                    <p class="text-[11px] text-slate-600 mt-1">Pengetahuan sistematis yang memiliki metode riset empiris, objek kajian, dan verifikasi rasional.</p>
+                                </div>
+                                <div class="p-4 rounded-xl bg-cream-100 border border-cream-200 text-center">
+                                    <i class="fas fa-palette text-gold-600 text-xl mb-2"></i>
+                                    <h5 class="font-bold text-navy-900 text-xs">Sejarah sebagai Seni</h5>
+                                    <p class="text-[11px] text-slate-600 mt-1">Membutuhkan intuisi, imajinasi ilmiah, emosi, dan gaya bahasa agar penyampaian kisah menjadi hidup.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-4 bg-navy-900 text-white rounded-2xl">
+                            <h4 class="font-bold text-gold-400 text-xs mb-2"><i class="fas fa-balance-scale mr-2"></i>Perbandingan: Peristiwa Sejarah vs Fiksi Berlatar Sejarah</h4>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+                                <div>
+                                    <p class="font-semibold text-white mb-1">Peristiwa Sejarah (Ilmiah)</p>
+                                    <ul class="list-disc pl-4 space-y-1 text-slate-300">
+                                        <li>Berdasarkan bukti & bukti autentik yang terverifikasi.</li>
+                                        <li>Memiliki kepastian fakta, tokoh nyata, dan kronologi mutlak.</li>
+                                        <li>Obyektif dan dapat diuji ulang kredibilitasnya.</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-white mb-1">Fiksi Berlatar Sejarah (Karya Sastra)</p>
+                                    <ul class="list-disc pl-4 space-y-1 text-slate-300">
+                                        <li>Memasukkan unsur imajinasi dan rekaan tokoh fiktif.</li>
+                                        <li>Alur cerita diubah demi kebutuhan dramaturgi.</li>
+                                        <li>Tidak berikatan dengan pengujian kebenaran empiris.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MODUL 2 -->
+                <div id="mod-content-2" class="module-body hidden">
+                    <div class="border-b border-slate-100 pb-4 mb-6">
+                        <span class="text-xs font-bold text-gold-600 tracking-wider uppercase">Modul 2</span>
+                        <h3 class="text-2xl font-extrabold text-navy-900">Unsur-Unsur Utama Sejarah</h3>
+                    </div>
+
+                    <p class="text-xs sm:text-sm text-slate-700 mb-6">
+                        Suatu kejadian hanya dapat dikategorikan sebagai peristiwa sejarah apabila memiliki 3 unsur utama yang saling terikat secara tidak terpisahkan:
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                        <div class="bg-cream-50 p-6 rounded-2xl border border-cream-200">
+                            <div class="w-10 h-10 rounded-lg bg-navy-900 text-white flex items-center justify-center font-bold mb-3"><i class="fas fa-users"></i></div>
+                            <h4 class="font-bold text-navy-900 text-base mb-2">1. Manusia</h4>
+                            <p class="text-xs text-slate-600 leading-relaxed">Manusia adalah aktor utama, pembuat keputusan, dan subjek sekaligus objek sejarah. Tanpa manusia, peristiwa alam semata tidak menjadi peristiwa sejarah.</p>
+                        </div>
+                        <div class="bg-cream-50 p-6 rounded-2xl border border-cream-200">
+                            <div class="w-10 h-10 rounded-lg bg-navy-900 text-white flex items-center justify-center font-bold mb-3"><i class="fas fa-map-marked-alt"></i></div>
+                            <h4 class="font-bold text-navy-900 text-base mb-2">2. Ruang (Spasial)</h4>
+                            <p class="text-xs text-slate-600 leading-relaxed">Tempat atau lokasi geografis terjadinya peristiwa. Konsep ruang memberi konteks lingkungan fisik dan batas kedaulatan.</p>
+                        </div>
+                        <div class="bg-cream-50 p-6 rounded-2xl border border-cream-200">
+                            <div class="w-10 h-10 rounded-lg bg-navy-900 text-white flex items-center justify-center font-bold mb-3"><i class="fas fa-clock"></i></div>
+                            <h4 class="font-bold text-navy-900 text-base mb-2">3. Waktu (Temporal)</h4>
+                            <p class="text-xs text-slate-600 leading-relaxed">Kapan peristiwa tersebut berlangsung. Waktu mencakup detik, jam, hari, tahun, serta masa lalu, masa kini, dan masa mendatang.</p>
+                        </div>
+                    </div>
+
+                    <!-- Aktivitas Interaktif Kartu Unsur Sejarah -->
+                    <div class="bg-navy-900 p-6 rounded-2xl text-white">
+                        <h4 class="font-bold text-gold-400 text-sm mb-3"><i class="fas fa-hand-pointer mr-2"></i>Aktivitas Interaktif: Identifikasi Unsur Sejarah</h4>
+                        <p class="text-xs text-slate-300 mb-4">Studi Kasus: <strong>"Proklamasi Kemerdekaan Indonesia 17 Agustus 1945 di Jalan Pegangsaan Timur No. 56 Jakarta"</strong>. Klik kartu di bawah untuk mencocokkan unsurnya!</p>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <div onclick="toggleElementCard(this, 'Ir. Soekarno, Drs. Moh. Hatta, serta tokoh pemuda dan rakyat Indonesia.')" class="cursor-pointer p-4 rounded-xl bg-navy-800 border border-slate-700 hover:border-gold-400 transition text-center">
+                                <span class="text-xs font-bold text-gold-400 block mb-1">UNSUR A</span>
+                                <span class="font-semibold text-sm">Siapa Pelakunya?</span>
+                                <div class="card-detail hidden mt-3 pt-3 border-t border-slate-700 text-xs text-amber-300 font-medium"></div>
+                            </div>
+                            <div onclick="toggleElementCard(this, 'Jalan Pegangsaan Timur No. 56, Jakarta Pusat.')" class="cursor-pointer p-4 rounded-xl bg-navy-800 border border-slate-700 hover:border-gold-400 transition text-center">
+                                <span class="text-xs font-bold text-gold-400 block mb-1">UNSUR B</span>
+                                <span class="font-semibold text-sm">Di Mana Lokasinya?</span>
+                                <div class="card-detail hidden mt-3 pt-3 border-t border-slate-700 text-xs text-amber-300 font-medium"></div>
+                            </div>
+                            <div onclick="toggleElementCard(this, 'Jumat, 17 Agustus 1945, pukul 10.00 WIB.')" class="cursor-pointer p-4 rounded-xl bg-navy-800 border border-slate-700 hover:border-gold-400 transition text-center">
+                                <span class="text-xs font-bold text-gold-400 block mb-1">UNSUR C</span>
+                                <span class="font-semibold text-sm">Kapan Terjadinya?</span>
+                                <div class="card-detail hidden mt-3 pt-3 border-t border-slate-700 text-xs text-amber-300 font-medium"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MODUL 3 -->
+                <div id="mod-content-3" class="module-body hidden">
+                    <div class="border-b border-slate-100 pb-4 mb-6">
+                        <span class="text-xs font-bold text-gold-600 tracking-wider uppercase">Modul 3</span>
+                        <h3 class="text-2xl font-extrabold text-navy-900">Konsep Waktu dalam Sejarah</h3>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                        <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200">
+                            <span class="text-xs font-extrabold text-gold-600 uppercase">Istilah 1</span>
+                            <h4 class="font-bold text-navy-900 text-base">Kronologi</h4>
+                            <p class="text-xs text-slate-600 mt-2">Penyusunan urutan peristiwa sejarah secara runtut berdasarkan urutan waktu kejadiannya tanpa ada yang terbalik.</p>
+                        </div>
+                        <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200">
+                            <span class="text-xs font-extrabold text-gold-600 uppercase">Istilah 2</span>
+                            <h4 class="font-bold text-navy-900 text-base">Periodisasi</h4>
+                            <p class="text-xs text-slate-600 mt-2">Pembabakan waktu sejarah ke dalam kurun/era tertentu berdasarkan karakteristik khusus (contoh: Masa Praaksara, Era Kemerdekaan).</p>
+                        </div>
+                        <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200">
+                            <span class="text-xs font-extrabold text-gold-600 uppercase">Istilah 3</span>
+                            <h4 class="font-bold text-navy-900 text-base">Kronik</h4>
+                            <p class="text-xs text-slate-600 mt-2">Catatan peninggalan berupa perjalanan atau urutan peristiwa yang ditulis oleh musafir/penjelajah (misal: Catatan I-Tsing, Fa-Hien).</p>
+                        </div>
+                    </div>
+
+                    <!-- Garis Waktu Interaktif Perjuangan Kemerdekaan -->
+                    <div class="bg-cream-100 p-6 rounded-2xl border border-cream-200 mb-6">
+                        <h4 class="font-bold text-navy-900 text-sm mb-4"><i class="fas fa-stream text-gold-600 mr-2"></i>Garis Waktu Interaktif: Peristiwa Sekitar Proklamasi</h4>
+                        <div class="flex flex-col md:flex-row items-center justify-between gap-4 relative">
+                            
+                            <!-- Timeline Item 1 -->
+                            <div onclick="showTimelineDetail('15 Ags 1945', 'Jepang menyerah tanpa syarat kepada Sekutu setelah bom atom di Hiroshima & Nagasaki.')" class="cursor-pointer w-full md:w-1/4 p-4 bg-white rounded-xl shadow-md border-t-4 border-navy-900 hover:scale-105 transition">
+                                <span class="text-xs font-bold text-gold-600">15 Agustus 1945</span>
+                                <h5 class="font-bold text-xs text-slate-800 mt-1">Jepang Menyerah</h5>
+                                <p class="text-[11px] text-slate-500 mt-1">Kekosongan Kekuasaan (Vacuum of Power)</p>
+                            </div>
+
+                            <i class="fas fa-arrow-right text-slate-400 hidden md:block"></i>
+
+                            <!-- Timeline Item 2 -->
+                            <div onclick="showTimelineDetail('16 Ags 1945', 'Peristiwa Rengasdengklok: Pemuda membawa Soekarno-Hatta untuk mempercepat proklamasi.')" class="cursor-pointer w-full md:w-1/4 p-4 bg-white rounded-xl shadow-md border-t-4 border-navy-900 hover:scale-105 transition">
+                                <span class="text-xs font-bold text-gold-600">16 Agustus 1945</span>
+                                <h5 class="font-bold text-xs text-slate-800 mt-1">Rengasdengklok</h5>
+                                <p class="text-[11px] text-slate-500 mt-1">Kesepakatan Golongan Muda & Tua</p>
+                            </div>
+
+                            <i class="fas fa-arrow-right text-slate-400 hidden md:block"></i>
+
+                            <!-- Timeline Item 3 -->
+                            <div onclick="showTimelineDetail('17 Ags 1945', 'Pembacaan teks Proklamasi Kemerdekaan RI oleh Ir. Soekarno di Jakarta.')" class="cursor-pointer w-full md:w-1/4 p-4 bg-white rounded-xl shadow-md border-t-4 border-gold-500 hover:scale-105 transition">
+                                <span class="text-xs font-bold text-gold-600">17 Agustus 1945</span>
+                                <h5 class="font-bold text-xs text-slate-800 mt-1">Proklamasi RI</h5>
+                                <p class="text-[11px] text-slate-500 mt-1">Lahirnya Negara Indonesia</p>
+                            </div>
+                        </div>
+
+                        <!-- Info Box Detail -->
+                        <div id="timeline-detail-box" class="mt-4 p-4 bg-white rounded-xl border border-gold-400 text-xs text-slate-700 hidden">
+                            <span id="timeline-detail-title" class="font-bold text-navy-900 block mb-1"></span>
+                            <span id="timeline-detail-desc"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MODUL 4 -->
+                <div id="mod-content-4" class="module-body hidden">
+                    <div class="border-b border-slate-100 pb-4 mb-6">
+                        <span class="text-xs font-bold text-gold-600 tracking-wider uppercase">Modul 4</span>
+                        <h3 class="text-2xl font-extrabold text-navy-900">Cara Berpikir Sejarah: Diakronis vs Sinkronis</h3>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div class="p-6 rounded-2xl bg-navy-900 text-white">
+                            <div class="flex items-center space-x-2 mb-3">
+                                <i class="fas fa-arrows-alt-h text-gold-400 text-xl"></i>
+                                <h4 class="font-bold text-lg text-gold-400">Cara Berpikir Diakronis</h4>
+                            </div>
+                            <p class="text-xs text-slate-300 leading-relaxed mb-4">
+                                Memanjang dalam waktu, tetapi menyempit dalam ruang. Berfokus pada urutan kronologis perkembangan, kronologi sebab-akibat, dan perubahan dari masa ke masa.
+                            </p>
+                            <div class="bg-navy-800 p-3 rounded-xl border border-slate-700 text-xs">
+                                <span class="font-bold text-gold-400">Contoh Kasus:</span> Kronologi Pertempuran Ambarawa dari 20 Oktober hingga 15 Desember 1945.
+                            </div>
+                        </div>
+
+                        <div class="p-6 rounded-2xl bg-cream-100 border border-cream-200">
+                            <div class="flex items-center space-x-2 mb-3">
+                                <i class="fas fa-arrows-alt-v text-navy-900 text-xl"></i>
+                                <h4 class="font-bold text-lg text-navy-900">Cara Berpikir Sinkronis</h4>
+                            </div>
+                            <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                                Meluas dalam ruang, tetapi menyempit dalam waktu. Menganalisis kondisi sosial, politik, ekonomi, dan budaya secara mendalam pada satu momen tertentu.
+                            </p>
+                            <div class="bg-white p-3 rounded-xl border border-slate-200 text-xs">
+                                <span class="font-bold text-navy-900">Contoh Kasus:</span> Keadaan Ekonomi dan Kehidupan Sosial Masyarakat Maluku pada Saat Pembacaan Proklamasi 1945.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Latihan Singkat Mengelompokkan -->
+                    <div class="p-5 bg-slate-50 rounded-2xl border border-slate-200">
+                        <h4 class="font-bold text-navy-900 text-xs mb-3"><i class="fas fa-tasks text-gold-600 mr-2"></i>Latihan Mandiri: Tentukan Pendekatannya</h4>
+                        <p class="text-xs text-slate-600 mb-3">Pernyataan: "Kajian mengenai dampak sosial-ekonomi Revolusi Industri di Inggris khusus pada tahun 1850."</p>
+                        <div class="flex space-x-3">
+                            <button onclick="checkDiakronisSinkronis('sinkronis')" class="px-4 py-2 bg-navy-900 text-white rounded-lg text-xs font-semibold hover:bg-navy-800 transition">Sinkronis</button>
+                            <button onclick="checkDiakronisSinkronis('diakronis')" class="px-4 py-2 bg-slate-200 text-slate-800 rounded-lg text-xs font-semibold hover:bg-slate-300 transition">Diakronis</button>
+                        </div>
+                        <div id="diak-sink-feedback" class="mt-3 text-xs font-medium hidden"></div>
+                    </div>
+                </div>
+
+                <!-- MODUL 5 -->
+                <div id="mod-content-5" class="module-body hidden">
+                    <div class="border-b border-slate-100 pb-4 mb-6">
+                        <span class="text-xs font-bold text-gold-600 tracking-wider uppercase">Modul 5</span>
+                        <h3 class="text-2xl font-extrabold text-navy-900">Sumber Sejarah & Klasifikasinya</h3>
+                    </div>
+
+                    <p class="text-xs sm:text-sm text-slate-700 mb-6">
+                        Sumber sejarah adalah segala peninggalan masa lalu yang memuat informasi atau bukti untuk merekonstruksi peristiwa sejarah.
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div class="p-5 bg-gold-500/10 rounded-2xl border border-gold-500/30">
+                            <h4 class="font-bold text-navy-900 text-sm mb-2"><i class="fas fa-star text-gold-600 mr-2"></i>Sumber Primer</h4>
+                            <p class="text-xs text-slate-600 leading-relaxed mb-3">Kesaksian atau peninggalan langsung dari pelaku/saksi mata yang hidup pada zaman terjadinya peristiwa tersebut.</p>
+                            <span class="text-[11px] font-semibold text-navy-900 bg-white px-2.5 py-1 rounded-md border border-slate-200">Contoh: Prasasti Ciaruteun, Dokumen Naskah Proklamasi Asli, Foto Autentik.</span>
+                        </div>
+                        <div class="p-5 bg-slate-100 rounded-2xl border border-slate-200">
+                            <h4 class="font-bold text-navy-900 text-sm mb-2"><i class="fas fa-book-reader text-slate-600 mr-2"></i>Sumber Sekunder</h4>
+                            <p class="text-xs text-slate-600 leading-relaxed mb-3">Kesaksian atau tulisan dari pihak yang tidak mengalami langsung peristiwa, melainkan berdasarkan hasil penelitian sumber primer.</p>
+                            <span class="text-[11px] font-semibold text-navy-900 bg-white px-2.5 py-1 rounded-md border border-slate-200">Contoh: Buku Teks Sejarah, Jurnal Akademik, Biografi Tambahan.</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-navy-900 text-white p-6 rounded-2xl">
+                        <h4 class="font-bold text-gold-400 text-xs uppercase mb-3">Bentuk-Bentuk Sumber Sejarah</h4>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center text-xs">
+                            <div class="p-3 bg-navy-800 rounded-xl border border-slate-700"><i class="fas fa-file-alt text-gold-400 text-lg mb-1 block"></i><strong>Tertulis</strong><br><span class="text-[10px] text-slate-400">Arsip, Surat, Prasasti</span></div>
+                            <div class="p-3 bg-navy-800 rounded-xl border border-slate-700"><i class="fas fa-comments text-gold-400 text-lg mb-1 block"></i><strong>Lisan</strong><br><span class="text-[10px] text-slate-400">Wawancara Saksi Mata</span></div>
+                            <div class="p-3 bg-navy-800 rounded-xl border border-slate-700"><i class="fas fa-monument text-gold-400 text-lg mb-1 block"></i><strong>Benda</strong><br><span class="text-[10px] text-slate-400">Candi, Senjata, Artefak</span></div>
+                            <div class="p-3 bg-navy-800 rounded-xl border border-slate-700"><i class="fas fa-photo-video text-gold-400 text-lg mb-1 block"></i><strong>Audiovisual</strong><br><span class="text-[10px] text-slate-400">Rekaman Suara & Rekaman Foto</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MODUL 6 -->
+                <div id="mod-content-6" class="module-body hidden">
+                    <div class="border-b border-slate-100 pb-4 mb-6">
+                        <span class="text-xs font-bold text-gold-600 tracking-wider uppercase">Modul 6</span>
+                        <h3 class="text-2xl font-extrabold text-navy-900">Tahapan Penelitian Sejarah</h3>
+                    </div>
+
+                    <p class="text-xs sm:text-sm text-slate-700 mb-6">
+                        Sejarah sebagai ilmu menggunakan 5 tahapan riset baku untuk merekonstruksi peristiwa secara sahih:
+                    </p>
+
+                    <!-- Interactive Step Flow -->
+                    <div class="space-y-4">
+                        <div onclick="toggleResearchStep(1)" class="cursor-pointer p-4 rounded-2xl bg-cream-50 border border-cream-200 hover:border-gold-500 transition">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-3">
+                                    <span class="w-8 h-8 rounded-full bg-navy-900 text-gold-400 flex items-center justify-center font-bold text-xs">1</span>
+                                    <h4 class="font-bold text-navy-900 text-sm">Pemilihan Topik</h4>
+                                </div>
+                                <i class="fas fa-chevron-down text-slate-400 text-xs"></i>
+                            </div>
+                            <div id="r-step-1" class="hidden mt-3 pt-3 border-t border-slate-200 text-xs text-slate-600">
+                                Menentukan fokus kajian yang bernilai ilmiah, orisinal, praktis, dan didukung ketersediaan sumber daya.
+                            </div>
+                        </div>
+
+                        <div onclick="toggleResearchStep(2)" class="cursor-pointer p-4 rounded-2xl bg-cream-50 border border-cream-200 hover:border-gold-500 transition">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-3">
+                                    <span class="w-8 h-8 rounded-full bg-navy-900 text-gold-400 flex items-center justify-center font-bold text-xs">2</span>
+                                    <h4 class="font-bold text-navy-900 text-sm">Heuristik (Pengumpulan Sumber)</h4>
+                                </div>
+                                <i class="fas fa-chevron-down text-slate-400 text-xs"></i>
+                            </div>
+                            <div id="r-step-2" class="hidden mt-3 pt-3 border-t border-slate-200 text-xs text-slate-600">
+                                Langkah mencari, melacak, dan mengumpulkan sumber-sumber sejarah yang relevan di perpustakaan, museum, atau wawancara.
+                            </div>
+                        </div>
+
+                        <div onclick="toggleResearchStep(3)" class="cursor-pointer p-4 rounded-2xl bg-cream-50 border border-cream-200 hover:border-gold-500 transition">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-3">
+                                    <span class="w-8 h-8 rounded-full bg-navy-900 text-gold-400 flex items-center justify-center font-bold text-xs">3</span>
+                                    <h4 class="font-bold text-navy-900 text-sm">Kritik / Verifikasi Sumber</h4>
+                                </div>
+                                <i class="fas fa-chevron-down text-slate-400 text-xs"></i>
+                            </div>
+                            <div id="r-step-3" class="hidden mt-3 pt-3 border-t border-slate-200 text-xs text-slate-600">
+                                Menguji keaslian dan kebenaran sumber:
+                                <ul class="list-disc pl-4 mt-1 space-y-0.5">
+                                    <li><strong>Kritik Eksternal:</strong> Menguji otentisitas bentuk fisik (kertas, bahan, usia).</li>
+                                    <li><strong>Kritik Internal:</strong> Menguji kredibilitas atau isi informasi di dalam sumber.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div onclick="toggleResearchStep(4)" class="cursor-pointer p-4 rounded-2xl bg-cream-50 border border-cream-200 hover:border-gold-500 transition">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-3">
+                                    <span class="w-8 h-8 rounded-full bg-navy-900 text-gold-400 flex items-center justify-center font-bold text-xs">4</span>
+                                    <h4 class="font-bold text-navy-900 text-sm">Interpretasi (Penafsiran)</h4>
+                                </div>
+                                <i class="fas fa-chevron-down text-slate-400 text-xs"></i>
+                            </div>
+                            <div id="r-step-4" class="hidden mt-3 pt-3 border-t border-slate-200 text-xs text-slate-600">
+                                Menafsirkan fakta-fakta sejarah yang telah teruji dan menghubungkannya sehingga membentuk satu kesatuan kronologis yang logis.
+                            </div>
+                        </div>
+
+                        <div onclick="toggleResearchStep(5)" class="cursor-pointer p-4 rounded-2xl bg-cream-50 border border-cream-200 hover:border-gold-500 transition">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-3">
+                                    <span class="w-8 h-8 rounded-full bg-navy-900 text-gold-400 flex items-center justify-center font-bold text-xs">5</span>
+                                    <h4 class="font-bold text-navy-900 text-sm">Historiografi (Penulisan Sejarah)</h4>
+                                </div>
+                                <i class="fas fa-chevron-down text-slate-400 text-xs"></i>
+                            </div>
+                            <div id="r-step-5" class="hidden mt-3 pt-3 border-t border-slate-200 text-xs text-slate-600">
+                                Penyusunan hasil penelitian ke dalam bentuk tulisan atau laporan ilmiah yang sistematis dan komunikatif.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Controls inside Module -->
+                <div class="mt-8 pt-6 border-t border-slate-100 flex justify-between items-center">
+                    <button onclick="prevModule()" id="btn-mod-prev" class="px-5 py-2.5 rounded-xl border border-slate-300 text-slate-600 text-sm font-semibold hover:bg-slate-50 transition hidden">Modul Sebelumnya</button>
+                    <button onclick="nextModule()" id="btn-mod-next" class="px-6 py-3 rounded-xl bg-navy-900 text-white text-sm font-semibold hover:bg-navy-800 transition ml-auto flex items-center space-x-2">
+                        <span>Modul Selanjutnya</span>
+                        <i class="fas fa-chevron-right text-xs"></i>
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION 5: EKSPLORASI SUMBER SEJARAH -->
+        <section id="sec-eksplorasi" class="view-section hidden py-10 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+            <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-xl border border-slate-100">
+                <div class="flex items-center space-x-3 mb-6">
+                    <div class="w-12 h-12 rounded-xl bg-gold-500/10 text-gold-600 flex items-center justify-center text-2xl font-bold">
+                        <i class="fas fa-search-location"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-navy-900">Galeri Eksplorasi Sumber Sejarah</h2>
+                        <p class="text-xs text-slate-500">Analisis Artefak & Peninggalan Sejarah</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Gallery Item 1 -->
+                    <div class="bg-slate-50 rounded-2xl p-5 border border-slate-200">
+                        <div class="w-full h-40 bg-navy-900 rounded-xl mb-4 flex items-center justify-center text-gold-400 text-4xl">
+                            <i class="fas fa-scroll"></i>
+                        </div>
+                        <span class="text-[10px] font-bold bg-gold-500/20 text-gold-700 px-2 py-0.5 rounded">Sumber Tertulis / Primer</span>
+                        <h4 class="font-bold text-navy-900 text-base mt-2">Naskah Proklamasi Otentik (Ketik Sayuti Melik)</h4>
+                        <p class="text-xs text-slate-600 mt-1">Dokumen resmi kemerdekaan Republik Indonesia yang ditandatangani oleh Soekarno-Hatta.</p>
+                        <div class="mt-3 p-3 bg-white rounded-xl text-[11px] space-y-1 text-slate-600 border border-slate-100">
+                            <p><strong>Informasi didapat:</strong> Tanggal, jam, serta ikrar pernyataan kemerdekaan bangsa Indonesia.</p>
+                            <p><strong>Keterbatasan:</strong> Tidak merekam perdebatan lisan dalam penyusunannya.</p>
+                        </div>
+                    </div>
+
+                    <!-- Gallery Item 2 -->
+                    <div class="bg-slate-50 rounded-2xl p-5 border border-slate-200">
+                        <div class="w-full h-40 bg-navy-900 rounded-xl mb-4 flex items-center justify-center text-gold-400 text-4xl">
+                            <i class="fas fa-monument"></i>
+                        </div>
+                        <span class="text-[10px] font-bold bg-gold-500/20 text-gold-700 px-2 py-0.5 rounded">Sumber Benda / Kebendaan</span>
+                        <h4 class="font-bold text-navy-900 text-base mt-2">Prasasti Ciaruteun (Kerajaan Tarumanagara)</h4>
+                        <p class="text-xs text-slate-600 mt-1">Batu prasasti berukir telapak kaki Raja Purnawarman bertuliskan huruf Pallawa.</p>
+                        <div class="mt-3 p-3 bg-white rounded-xl text-[11px] space-y-1 text-slate-600 border border-slate-100">
+                            <p><strong>Informasi didapat:</strong> Keberadaan raja, wilayah kekuasaan, dan corak keagamaan Hindu.</p>
+                            <p><strong>Keterbatasan:</strong> Terbatas pada klaim penguasa, memerlukan verifikasi dengan prasasti lain.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 flex justify-between items-center">
+                    <button onclick="navigateTo('materi')" class="px-5 py-2.5 rounded-xl border border-slate-300 text-slate-600 text-sm font-semibold hover:bg-slate-50 transition">Kembali ke Materi</button>
+                    <button onclick="markStepComplete('eksplorasi'); navigateTo('lab');" class="px-6 py-3 rounded-xl bg-navy-900 text-white text-sm font-semibold hover:bg-navy-800 transition flex items-center space-x-2">
+                        <span>Lanjut ke Laboratorium</span>
+                        <i class="fas fa-chevron-right text-xs"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: LABORATORIUM SEJARAH (Riset Peneliti Muda) -->
+        <section id="sec-lab" class="view-section hidden py-10 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+            <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-xl border border-slate-100">
+                <div class="flex items-center space-x-3 mb-6">
+                    <div class="w-12 h-12 rounded-xl bg-gold-500/10 text-gold-600 flex items-center justify-center text-2xl font-bold">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-navy-900">Laboratorium Sejarah: Peneliti Muda</h2>
+                        <p class="text-xs text-slate-500">Misi Simulasi Penelitian Sejarah Lingkungan & Lokal</p>
+                    </div>
+                </div>
+
+                <!-- Mission Description -->
+                <div class="bg-navy-950 text-white p-6 rounded-2xl mb-8 border border-slate-800">
+                    <span class="px-2.5 py-1 rounded bg-gold-500/20 text-gold-400 font-bold text-[10px] uppercase tracking-wider">Misi Praktik</span>
+                    <h3 class="text-lg font-bold text-white mt-2 mb-1">Studi Kasus: Sejarah Lokal / Lingkungan Sekitar Sekolah / Desa</h3>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Bayangkan Anda adalah seorang peneliti muda di Tehoru / Maluku. Tugas Anda adalah mengumpulkan bukti untuk merekonstruksi sejarah pendirian sekolah, peninggalan bersejarah lokal, atau tradisi masyarakat.
+                    </p>
+                </div>
+
+                <!-- Digital Worksheet Form -->
+                <form id="lab-worksheet-form" onsubmit="event.preventDefault(); saveLabWorksheet();" class="space-y-6">
+                    <div>
+                        <label class="block text-xs font-bold text-navy-900 uppercase mb-2">1. Topik Penelitian / Pertanyaan Masalah</label>
+                        <input type="text" id="lab-topic" placeholder="Contoh: Sejarah Pendirian SMAS Al-Hilaal Tehoru dan Pengaruhnya bagi Masyarakat..." class="w-full p-3 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-gold-500 focus:outline-none" required>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-navy-900 uppercase mb-2">2. Identifikasi Sumber Primer yang Digunakan</label>
+                        <textarea id="lab-primary-sources" rows="2" placeholder="Sebutkan wawancara tokoh pendiri, arsip dokumen pendirian, foto lama..." class="w-full p-3 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-gold-500 focus:outline-none" required></textarea>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-navy-900 uppercase mb-2">3. Urutan Kronologi Peristiwa (Garis Waktu Ringkas)</label>
+                        <textarea id="lab-chronology" rows="2" placeholder="Tahun 1990: Inisiasi... Tahun 1995: Peresmian..." class="w-full p-3 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-gold-500 focus:outline-none" required></textarea>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-navy-900 uppercase mb-2">4. Kesimpulan Hasil Analisis</label>
+                        <textarea id="lab-conclusion" rows="3" placeholder="Tuliskan kesimpulan ringkas Anda berdasarkan bukti yang ada..." class="w-full p-3 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-gold-500 focus:outline-none" required></textarea>
+                    </div>
+
+                    <div class="flex items-center space-x-3">
+                        <button type="submit" class="px-6 py-3 rounded-xl bg-gold-500 text-navy-950 font-bold text-xs hover:bg-gold-400 transition shadow">
+                            <i class="fas fa-save mr-1"></i> Simpan Lembar Kerja Lab
+                        </button>
+                        <span id="lab-save-status" class="text-xs font-semibold text-green-600 hidden"><i class="fas fa-check-circle"></i> Berhasil disimpan di perangkat!</span>
+                    </div>
+                </form>
+
+                <div class="mt-8 pt-6 border-t border-slate-100 flex justify-between items-center">
+                    <button onclick="navigateTo('eksplorasi')" class="px-5 py-2.5 rounded-xl border border-slate-300 text-slate-600 text-sm font-semibold hover:bg-slate-50 transition">Kembali</button>
+                    <button onclick="markStepComplete('lab'); navigateTo('kuis');" class="px-6 py-3 rounded-xl bg-navy-900 text-white text-sm font-semibold hover:bg-navy-800 transition flex items-center space-x-2">
+                        <span>Lanjut ke Kuis Interaktif</span>
+                        <i class="fas fa-chevron-right text-xs"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 7: KUIS INTERAKTIF -->
+        <section id="sec-kuis" class="view-section hidden py-10 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+            <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-xl border border-slate-100">
+                <div class="flex items-center justify-between mb-6 border-b border-slate-100 pb-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 rounded-xl bg-gold-500/10 text-gold-600 flex items-center justify-center text-2xl font-bold">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-extrabold text-navy-900">Kuis Evaluasi Interaktif</h2>
+                            <p class="text-xs text-slate-500">Uji Pemahaman Konsep Dasar Sejarah</p>
+                        </div>
+                    </div>
+                    <div id="quiz-score-badge" class="hidden px-4 py-2 bg-navy-900 text-gold-400 rounded-xl text-xs font-bold">
+                        Skor: <span id="quiz-score-num">0</span> / 100
+                    </div>
+                </div>
+
+                <!-- Quiz Container -->
+                <div id="quiz-container" class="space-y-8">
+                    <!-- JS Rendering Questions Here -->
+                </div>
+
+                <!-- Quiz Submit / Result Controls -->
+                <div class="mt-8 pt-6 border-t border-slate-100 flex items-center justify-between">
+                    <button onclick="resetQuiz()" class="px-4 py-2 rounded-xl border border-slate-300 text-slate-600 text-xs font-semibold hover:bg-slate-50 transition">
+                        <i class="fas fa-redo mr-1"></i> Ulangi Kuis
+                    </button>
+                    <button id="btn-submit-quiz" onclick="submitQuiz()" class="px-6 py-3 rounded-xl bg-gradient-to-r from-gold-500 to-amber-500 text-navy-950 font-bold text-sm shadow hover:opacity-90 transition">
+                        Submit & Hitung Skor
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 8: REFLEKSI PEMBELAJARAN -->
+        <section id="sec-refleksi" class="view-section hidden py-10 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+            <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-xl border border-slate-100">
+                <div class="flex items-center space-x-3 mb-6">
+                    <div class="w-12 h-12 rounded-xl bg-gold-500/10 text-gold-600 flex items-center justify-center text-2xl font-bold">
+                        <i class="fas fa-pen-fancy"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-navy-900">Refleksi Pembelajaran</h2>
+                        <p class="text-xs text-slate-500">Evaluasi Diri & Pemaknaan Belajar Peserta Didik</p>
+                    </div>
+                </div>
+
+                <form id="reflection-form" onsubmit="event.preventDefault(); saveReflection();" class="space-y-6">
+                    <div>
+                        <label class="block text-xs font-bold text-navy-900 uppercase mb-2">1. Konsep ilmu sejarah mana yang paling Anda pahami dengan baik?</label>
+                        <textarea id="ref-q1" rows="2" class="w-full p-3 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-gold-500 focus:outline-none" required></textarea>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-navy-900 uppercase mb-2">2. Bagaimana cara Anda membedakan berpikir Diakronis dan Sinkronis?</label>
+                        <textarea id="ref-q2" rows="2" class="w-full p-3 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-gold-500 focus:outline-none" required></textarea>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-navy-900 uppercase mb-2">3. Mengapa penting menguji kredibilitas suatu sumber sejarah (Kritik Sumber)?</label>
+                        <textarea id="ref-q3" rows="2" class="w-full p-3 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-gold-500 focus:outline-none" required></textarea>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-navy-900 uppercase mb-2">4. Penilaian Diri Pemahaman Materi (Skala 1 - 4)</label>
+                        <div class="grid grid-cols-4 gap-3 text-center">
+                            <label class="cursor-pointer p-3 rounded-xl border border-slate-200 hover:border-gold-500 bg-cream-50">
+                                <input type="radio" name="ref-scale" value="1" class="hidden" required>
+                                <span class="block text-lg font-bold text-navy-900">1</span>
+                                <span class="text-[10px] text-slate-500">Kurang Paham</span>
+                            </label>
+                            <label class="cursor-pointer p-3 rounded-xl border border-slate-200 hover:border-gold-500 bg-cream-50">
+                                <input type="radio" name="ref-scale" value="2" class="hidden">
+                                <span class="block text-lg font-bold text-navy-900">2</span>
+                                <span class="text-[10px] text-slate-500">Cukup Paham</span>
+                            </label>
+                            <label class="cursor-pointer p-3 rounded-xl border border-slate-200 hover:border-gold-500 bg-cream-50">
+                                <input type="radio" name="ref-scale" value="3" class="hidden">
+                                <span class="block text-lg font-bold text-navy-900">3</span>
+                                <span class="text-[10px] text-slate-500">Paham</span>
+                            </label>
+                            <label class="cursor-pointer p-3 rounded-xl border border-slate-200 hover:border-gold-500 bg-cream-50">
+                                <input type="radio" name="ref-scale" value="4" class="hidden" checked>
+                                <span class="block text-lg font-bold text-navy-900">4</span>
+                                <span class="text-[10px] text-slate-500">Sangat Paham</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center space-x-3">
+                        <button type="submit" class="px-6 py-3 rounded-xl bg-navy-900 text-white font-bold text-xs hover:bg-navy-800 transition shadow">
+                            <i class="fas fa-check-circle mr-1"></i> Simpan Refleksi
+                        </button>
+                        <span id="ref-save-status" class="text-xs font-semibold text-green-600 hidden"><i class="fas fa-check-circle"></i> Refleksi tersimpan!</span>
+                    </div>
+                </form>
+
+                <div class="mt-8 pt-6 border-t border-slate-100 flex justify-between items-center">
+                    <button onclick="navigateTo('kuis')" class="px-5 py-2.5 rounded-xl border border-slate-300 text-slate-600 text-sm font-semibold hover:bg-slate-50 transition">Kembali ke Kuis</button>
+                    <button onclick="markStepComplete('refleksi'); navigateTo('sertifikat');" class="px-6 py-3 rounded-xl bg-gold-500 text-navy-950 font-bold text-sm hover:bg-gold-400 transition flex items-center space-x-2">
+                        <span>Lihat Sertifikat Kelulusan</span>
+                        <i class="fas fa-award text-xs"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 9: GLOSARIUM & DAFTAR PUSTAKA -->
+        <section id="sec-glosarium" class="view-section hidden py-10 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+            <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-xl border border-slate-100">
+                <div class="flex items-center space-x-3 mb-6">
+                    <div class="w-12 h-12 rounded-xl bg-gold-500/10 text-gold-600 flex items-center justify-center text-2xl font-bold">
+                        <i class="fas fa-list-alt"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-navy-900">Glosarium & Daftar Pustaka</h2>
+                        <p class="text-xs text-slate-500">Kamus Istilah Sejarah & Referensi Akademik Terverifikasi</p>
+                    </div>
+                </div>
+
+                <div class="mb-10">
+                    <h3 class="font-bold text-navy-900 text-lg mb-4 border-b border-slate-200 pb-2">Glosarium Istilah</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                        <div class="p-3 bg-cream-50 rounded-xl border border-cream-200">
+                            <span class="font-bold text-navy-900">Diakronis:</span> Mengkaji peristiwa dalam perkembangan dan urutan waktu yang memanjang.
+                        </div>
+                        <div class="p-3 bg-cream-50 rounded-xl border border-cream-200">
+                            <span class="font-bold text-navy-900">Sinkronis:</span> Mengkaji struktur peristiwa pada suatu kurun waktu meluas dalam ruang.
+                        </div>
+                        <div class="p-3 bg-cream-50 rounded-xl border border-cream-200">
+                            <span class="font-bold text-navy-900">Heuristik:</span> Tahapan pencarian dan pengumpulan sumber-sumber sejarah.
+                        </div>
+                        <div class="p-3 bg-cream-50 rounded-xl border border-cream-200">
+                            <span class="font-bold text-navy-900">Historiografi:</span> Tahapan penulisan atau penyusunan kisah sejarah secara ilmiah.
+                        </div>
+                        <div class="p-3 bg-cream-50 rounded-xl border border-cream-200">
+                            <span class="font-bold text-navy-900">Sumber Primer:</span> Bukti peninggalan langsung dari pelaku/saksi masa lalu.
+                        </div>
+                        <div class="p-3 bg-cream-50 rounded-xl border border-cream-200">
+                            <span class="font-bold text-navy-900">Periodisasi:</span> Pembabakan kurun waktu sejarah ke dalam era khusus.
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-navy-900 text-lg mb-4 border-b border-slate-200 pb-2">Daftar Pustaka Akademik</h3>
+                    <ul class="space-y-2 text-xs text-slate-600 list-disc pl-5">
+                        <li>Gottschalk, L. (1986). <em>Mengerti Sejarah: Pengantar Metode Sejarah</em> (Terj. Nugroho Notosusanto). Jakarta: UI Press.</li>
+                        <li>Kuntowijoyo. (2013). <em>Pengantar Ilmu Sejarah</em>. Yogyakarta: Tiara Wacana.</li>
+                        <li>Kartodirdjo, S. (1992). <em>Pendekatan Ilmu Sosial dalam Metodologi Sejarah</em>. Jakarta: Gramedia Pustaka Utama.</li>
+                        <li>Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi. (2021). <em>Buku Teks Utama Sejarah Kelas X SMA/SMK</em>. Jakarta: Pusat Kurikulum dan Perbukuan.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 10: INFORMASI KELAS & PETUNJUK GURU -->
+        <section id="sec-kelas" class="view-section hidden py-10 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+            <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-xl border border-slate-100">
+                <div class="flex items-center space-x-3 mb-6">
+                    <div class="w-12 h-12 rounded-xl bg-gold-500/10 text-gold-600 flex items-center justify-center text-2xl font-bold">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-navy-900">Menu Kelas & Informasi Pembelajaran</h2>
+                        <p class="text-xs text-slate-500">Detail Satuan Pendidikan & Petunjuk Integrasi Kelas</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <div class="bg-navy-900 text-white p-6 rounded-2xl">
+                        <h3 class="font-bold text-gold-400 text-base mb-4 border-b border-slate-700 pb-2">Identitas Satuan Pendidikan</h3>
+                        <div class="space-y-2 text-xs">
+                            <p><span class="text-slate-400">Nama Sekolah:</span> <strong class="text-white">SMAS Al-Hilaal Tehoru</strong></p>
+                            <p><span class="text-slate-400">Guru Pengampu:</span> <strong class="text-white">Acifah Hatapayo, S.Pd., Gr.</strong></p>
+                            <p><span class="text-slate-400">Mata Pelajaran:</span> <strong class="text-white">Sejarah</strong></p>
+                            <p><span class="text-slate-400">Materi Pokok:</span> <strong class="text-white">Konsep Dasar Ilmu Sejarah</strong></p>
+                            <p><span class="text-slate-400">Sasaran:</span> <strong class="text-white">Peserta Didik SMA</strong></p>
+                        </div>
+                    </div>
+
+                    <div class="bg-cream-50 p-6 rounded-2xl border border-cream-200">
+                        <h3 class="font-bold text-navy-900 text-base mb-4 border-b border-slate-200 pb-2">Petunjuk Penggunaan Bagi Guru</h3>
+                        <ul class="space-y-2 text-xs text-slate-700 list-disc pl-4">
+                            <li>Gunakan website ini dalam moda individu atau pembelajaran kelompok.</li>
+                            <li>Arahkan peserta didik menyelesaikan modul secara berurutan.</li>
+                            <li>Lembar kerja Laboratorium Sejarah dapat digunakan sebagai tugas analisis berbasis proyek lokal.</li>
+                            <li>Sertifikat digital otomatis terbuka setelah seluruh alur aktivitas rampung.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 11: SERTIFIKAT KELULUSAN (LOCKED UNTIL ALL COMPLETE) -->
+        <section id="sec-sertifikat" class="view-section hidden py-10 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+            
+            <!-- Locked State Card -->
+            <div id="cert-locked-card" class="bg-white rounded-3xl p-8 sm:p-12 shadow-xl border border-slate-100 text-center">
+                <div class="w-20 h-20 bg-amber-100 text-gold-600 rounded-full flex items-center justify-center text-4xl mx-auto mb-4">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <h3 class="text-2xl font-extrabold text-navy-900 mb-2">Sertifikat Kelulusan Belum Terbuka</h3>
+                <p class="text-xs sm:text-sm text-slate-600 max-w-lg mx-auto mb-6">
+                    Sertifikat resmi hanya dapat diakses dan dicetak apabila Anda telah menyelesaikan seluruh tahapan materi, kuis evaluasi (skor minimal terhitung), dan pengisian lembar refleksi.
+                </p>
+
+                <!-- Check Status Table -->
+                <div class="max-w-md mx-auto bg-slate-50 p-4 rounded-2xl text-xs space-y-2 mb-8 text-left border border-slate-200">
+                    <div class="flex items-center justify-between">
+                        <span>1. Tujuan & Peta Konsep</span>
+                        <span id="st-tujuan" class="font-bold text-slate-400"><i class="fas fa-times-circle"></i> Belum</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span>2. Modul Materi (1-6)</span>
+                        <span id="st-materi" class="font-bold text-slate-400"><i class="fas fa-times-circle"></i> Belum</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span>3. Eksplorasi Sumber & Lab</span>
+                        <span id="st-lab" class="font-bold text-slate-400"><i class="fas fa-times-circle"></i> Belum</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span>4. Kuis Evaluasi Interaktif</span>
+                        <span id="st-kuis" class="font-bold text-slate-400"><i class="fas fa-times-circle"></i> Belum</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span>5. Refleksi Pembelajaran</span>
+                        <span id="st-refleksi" class="font-bold text-slate-400"><i class="fas fa-times-circle"></i> Belum</span>
+                    </div>
+                </div>
+
+                <button onclick="navigateTo('materi')" class="px-6 py-3 rounded-xl bg-navy-900 text-white text-xs font-bold hover:bg-navy-800 transition">
+                    Lanjutkan Pembelajaran
+                </button>
+            </div>
+
+            <!-- Unlocked Printable Certificate -->
+            <div id="cert-unlocked-card" class="hidden">
+                
+                <div class="mb-4 flex justify-between items-center no-print">
+                    <span class="text-xs text-green-700 font-bold bg-green-100 px-3 py-1 rounded-full"><i class="fas fa-check-circle mr-1"></i> Selamat! Anda telah memenuhi semua persyaratan.</span>
+                    <button onclick="window.print()" class="px-6 py-2.5 bg-gold-500 hover:bg-gold-400 text-navy-950 font-bold text-xs rounded-xl shadow transition">
+                        <i class="fas fa-print mr-2"></i> Cetak / Simpan PDF
+                    </button>
+                </div>
+
+                <!-- Printable Certificate Design -->
+                <div id="printable-certificate" class="bg-cream-50 border-[12px] border-navy-900 p-8 sm:p-12 rounded-3xl shadow-2xl relative overflow-hidden text-center">
+                    <div class="absolute inset-0 border-2 border-gold-500/60 m-3 pointer-events-none"></div>
+
+                    <!-- Header -->
+                    <div class="mb-6">
+                        <div class="w-16 h-16 bg-navy-900 text-gold-400 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-3 shadow">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h2 class="font-serif font-extrabold text-navy-900 text-2xl sm:text-4xl tracking-wider">SERTIFIKAT KELULUSAN</h2>
+                        <p class="text-xs text-gold-700 font-bold uppercase tracking-widest mt-1">MEDIA PEMBELAJARAN INTERAKTIF SEJARAH</p>
+                    </div>
+
+                    <p class="text-xs text-slate-600 mb-2">Diberikan secara resmi kepada:</p>
+
+                    <!-- Student Name Input/Display -->
+                    <div class="mb-6">
+                        <input type="text" id="cert-student-name" placeholder="[ Ketik Nama Lengkap Siswa Di Sini ]" class="text-center font-serif text-2xl sm:text-3xl font-extrabold text-navy-900 border-b-2 border-gold-500 bg-transparent focus:outline-none w-full max-w-md p-1 no-print">
+                        <h3 id="cert-student-name-print" class="hidden font-serif text-2xl sm:text-3xl font-extrabold text-navy-900 border-b-2 border-gold-500 pb-1 max-w-md mx-auto"></h3>
+                    </div>
+
+                    <p class="text-xs sm:text-sm text-slate-700 leading-relaxed max-w-2xl mx-auto mb-8">
+                        Telah berhasil menyelesaikan seluruh modul pembelajaran, investigasi laboratorium sejarah, serta evaluasi kuis pada materi <strong>"Konsep Dasar Ilmu Sejarah"</strong> dengan pencapaian yang memuaskan.
+                    </p>
+
+                    <!-- Details & Signature -->
+                    <div class="grid grid-cols-2 gap-6 pt-6 border-t border-slate-300 max-w-2xl mx-auto text-xs">
+                        <div class="text-left">
+                            <p class="text-slate-500">Satuan Pendidikan:</p>
+                            <p class="font-bold text-navy-900">SMAS Al-Hilaal Tehoru</p>
+                            <p class="text-slate-500 mt-2">Capaian Kuis Evaluasi:</p>
+                            <p id="cert-quiz-score-val" class="font-bold text-gold-700">Skor: 100 / 100</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-slate-500">Guru Pengampu Mata Pelajaran:</p>
+                            <div class="h-10"></div>
+                            <p class="font-bold text-navy-900 underline">Acifah Hatapayo, S.Pd., Gr.</p>
+                            <p class="text-[10px] text-slate-500">NIP / Identitas Pengajar</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-navy-950 text-slate-400 text-xs border-t border-gold-500/20 py-8 px-4 sm:px-6 lg:px-8 mt-12 no-print">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+            <div>
+                <p class="font-bold text-white">Media Pembelajaran Sejarah Interaktif</p>
+                <p class="text-[11px] text-slate-400 mt-0.5">Disusun oleh Acifah Hatapayo, S.Pd., Gr. &bull; SMAS Al-Hilaal Tehoru</p>
+            </div>
+            <p class="text-[10px] text-slate-400">&copy; 2026 Historia Digital. Hak Cipta Dilindungi.</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Progress State Management
+        const userProgress = {
+            tujuan: false,
+            'peta-konsep': false,
+            materi: false,
+            eksplorasi: false,
+            lab: false,
+            kuis: false,
+            refleksi: false
+        };
+
+        let currentModuleIndex = 1;
+
+        // Navigation Controller
+        function navigateTo(sectionId) {
+            document.querySelectorAll('.view-section').forEach(sec => sec.classList.add('hidden'));
+            const target = document.getElementById('sec-' + sectionId);
+            if (target) {
+                target.classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            // Update Nav Highlights
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('text-gold-400', 'bg-navy-800');
+            });
+            const activeNav = document.getElementById('nav-' + sectionId);
+            if (activeNav) {
+                activeNav.classList.add('text-gold-400', 'bg-navy-800');
+            }
+
+            // Check Certificate Status when accessing certificate
+            if (sectionId === 'sertifikat') {
+                checkCertificateUnlock();
+            }
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        function markStepComplete(stepKey) {
+            userProgress[stepKey] = true;
+            updateProgressBar();
+        }
+
+        function updateProgressBar() {
+            const keys = Object.keys(userProgress);
+            const completed = keys.filter(k => userProgress[k]).length;
+            const pct = Math.round((completed / keys.length) * 100);
+            
+            const bar = document.getElementById('overall-progress-bar');
+            if (bar) bar.style.width = pct + '%';
+        }
+
+        // Module Switcher
+        function switchModule(modNum) {
+            currentModuleIndex = modNum;
+            document.querySelectorAll('.module-body').forEach(m => m.classList.add('hidden'));
+            document.getElementById('mod-content-' + modNum).classList.remove('hidden');
+
+            document.querySelectorAll('.mod-tab').forEach(t => {
+                t.classList.remove('bg-navy-900', 'text-white');
+                t.classList.add('bg-white', 'text-slate-600');
+            });
+            const activeTab = document.getElementById('mod-tab-' + modNum);
+            if (activeTab) {
+                activeTab.classList.remove('bg-white', 'text-slate-600');
+                activeTab.classList.add('bg-navy-900', 'text-white');
+            }
+
+            // Button states
+            const prevBtn = document.getElementById('btn-mod-prev');
+            const nextBtn = document.getElementById('btn-mod-next');
+
+            if (modNum === 1) prevBtn.classList.add('hidden');
+            else prevBtn.classList.remove('hidden');
+
+            if (modNum === 6) {
+                nextBtn.innerHTML = '<span>Lanjut ke Eksplorasi</span> <i class="fas fa-chevron-right text-xs"></i>';
+            } else {
+                nextBtn.innerHTML = '<span>Modul Selanjutnya</span> <i class="fas fa-chevron-right text-xs"></i>';
+            }
+        }
+
+        function nextModule() {
+            if (currentModuleIndex < 6) {
+                switchModule(currentModuleIndex + 1);
+            } else {
+                markStepComplete('materi');
+                navigateTo('eksplorasi');
+            }
+        }
+
+        function prevModule() {
+            if (currentModuleIndex > 1) {
+                switchModule(currentModuleIndex - 1);
+            }
+        }
+
+        // Interactive Card Toggles
+        function toggleElementCard(el, text) {
+            const detail = el.querySelector('.card-detail');
+            if (detail.classList.contains('hidden')) {
+                detail.innerText = text;
+                detail.classList.remove('hidden');
+            } else {
+                detail.classList.add('hidden');
+            }
+        }
+
+        function showTimelineDetail(title, desc) {
+            const box = document.getElementById('timeline-detail-box');
+            document.getElementById('timeline-detail-title').innerText = title;
+            document.getElementById('timeline-detail-desc').innerText = desc;
+            box.classList.remove('hidden');
+        }
+
+        function checkDiakronisSinkronis(type) {
+            const fb = document.getElementById('diak-sink-feedback');
+            fb.classList.remove('hidden');
+            if (type === 'sinkronis') {
+                fb.className = 'mt-3 text-xs font-semibold text-green-700 bg-green-100 p-2.5 rounded-lg';
+                fb.innerText = 'Jawaban Benar! Kajian berfokus secara mendalam pada suatu peristiwa dalam cakupan waktu tertentu (meluas dalam ruang) merupakan ciri pemikiran Sinkronis.';
+            } else {
+                fb.className = 'mt-3 text-xs font-semibold text-red-700 bg-red-100 p-2.5 rounded-lg';
+                fb.innerText = 'Kurang Tepat. Ingat bahwa studi ini membatasi waktu khusus (tahun 1850) untuk meneliti berbagai aspek sosial-ekonomi (Sinkronis).';
+            }
+        }
+
+        function toggleResearchStep(stepNum) {
+            const target = document.getElementById('r-step-' + stepNum);
+            target.classList.toggle('hidden');
+        }
+
+        // Form Storage Handlers
+        function saveLabWorksheet() {
+            localStorage.setItem('lab_topic', document.getElementById('lab-topic').value);
+            const status = document.getElementById('lab-save-status');
+            status.classList.remove('hidden');
+            setTimeout(() => status.classList.add('hidden'), 3000);
+            markStepComplete('lab');
+        }
+
+        function saveReflection() {
+            localStorage.setItem('ref_q1', document.getElementById('ref-q1').value);
+            const status = document.getElementById('ref-save-status');
+            status.classList.remove('hidden');
+            setTimeout(() => status.classList.add('hidden'), 3000);
+            markStepComplete('refleksi');
+        }
+
+        // Quiz Data & Engine
+        const quizQuestions = [
+            {
+                q: "1. Kata 'Sejarah' secara etimologis berasal dari bahasa Arab 'Syajaratun' yang memiliki arti...",
+                options: ["A. Peristiwa masa lalu", "B. Pohon atau silsilah", "C. Catatan kuno", "D. Waktu yang berjalan"],
+                correct: 1,
+                explain: "Syajaratun berarti pohon, melambangkan pertumbuhan silsilah dari akar hingga cabang."
+            },
+            {
+                q: "2. Tiga unsur utama yang tidak dapat dipisahkan dalam peristiwa sejarah adalah...",
+                options: ["A. Manusia, Ruang, dan Waktu", "B. Candi, Mitos, dan Dokumen", "C. Penguasa, Perang, dan Wilayah", "D. Past, Present, dan Future"],
+                correct: 0,
+                explain: "Manusia sebagai pelaku, Ruang sebagai tempat, dan Waktu sebagai kurun terjadinya."
+            },
+            {
+                q: "3. Cara berpikir sejarah yang mengkaji peristiwa dengan memanjang dalam waktu tetapi menyempit dalam ruang disebut...",
+                options: ["A. Sinkronis", "B. Diakronis", "C. Statis", "D. Komparatif"],
+                correct: 1,
+                explain: "Diakronis berfokus pada perkembangan kronologis urutan waktu."
+            },
+            {
+                q: "4. Pembabakan masa sejarah ke dalam era tertentu (misal: Masa Hindu-Buddha, Masa Kemerdekaan) disebut...",
+                options: ["A. Kronik", "B. Periodisasi", "C. Historiografi", "D. Heuristik"],
+                correct: 1,
+                explain: "Periodisasi adalah pengelompokan kurun waktu berdasarkan karakteristik tertentu."
+            },
+            {
+                q: "5. Sumber sejarah yang diperoleh secara langsung dari pelaku atau saksi mata masa lalu disebut sumber...",
+                options: ["A. Sekunder", "B. Tertulis tambahan", "C. Primer", "D. Tersier"],
+                correct: 2,
+                explain: "Sumber primer berasal langsung dari tangan pertama/saksi masa lalu."
+            }
+        ];
+
+        function renderQuiz() {
+            const container = document.getElementById('quiz-container');
+            container.innerHTML = '';
+
+            quizQuestions.forEach((item, index) => {
+                const qDiv = document.createElement('div');
+                qDiv.className = 'p-5 bg-slate-50 rounded-2xl border border-slate-200';
+                
+                let optionsHTML = '';
+                item.options.forEach((opt, optIdx) => {
+                    optionsHTML += `
+                        <label class="flex items-center space-x-3 p-3 bg-white rounded-xl border border-slate-200 cursor-pointer hover:border-gold-500 transition">
+                            <input type="radio" name="q_${index}" value="${optIdx}" class="text-gold-500 focus:ring-gold-500">
+                            <span class="text-xs text-slate-700 font-medium">${opt}</span>
+                        </label>
+                    `;
+                });
+
+                qDiv.innerHTML = `
+                    <p class="font-bold text-navy-900 text-xs sm:text-sm mb-3">${item.q}</p>
+                    <div class="space-y-2 mb-3">${optionsHTML}</div>
+                    <div id="q_explain_${index}" class="hidden p-3 rounded-xl text-xs font-medium"></div>
+                `;
+                container.appendChild(qDiv);
+            });
+        }
+
+        function submitQuiz() {
+            let correctCount = 0;
+
+            quizQuestions.forEach((item, index) => {
+                const selected = document.querySelector(`input[name="q_${index}"]:checked`);
+                const explainBox = document.getElementById(`q_explain_${index}`);
+                explainBox.classList.remove('hidden');
+
+                if (selected && parseInt(selected.value) === item.correct) {
+                    correctCount++;
+                    explainBox.className = "p-3 rounded-xl text-xs font-semibold bg-green-100 text-green-800 border border-green-200";
+                    explainBox.innerHTML = `<i class="fas fa-check-circle mr-1"></i> Benar! ${item.explain}`;
+                } else {
+                    explainBox.className = "p-3 rounded-xl text-xs font-semibold bg-red-100 text-red-800 border border-red-200";
+                    explainBox.innerHTML = `<i class="fas fa-times-circle mr-1"></i> Kurang Tepat. Jawaban yang benar: ${item.options[item.correct]}. ${item.explain}`;
+                }
+            });
+
+            const finalScore = Math.round((correctCount / quizQuestions.length) * 100);
+            document.getElementById('quiz-score-num').innerText = finalScore;
+            document.getElementById('quiz-score-badge').classList.remove('hidden');
+            document.getElementById('cert-quiz-score-val').innerText = `Skor: ${finalScore} / 100`;
+
+            markStepComplete('kuis');
+        }
+
+        function resetQuiz() {
+            renderQuiz();
+            document.getElementById('quiz-score-badge').classList.add('hidden');
+        }
+
+        // Certificate Unlocking Logic
+        function checkCertificateUnlock() {
+            const isTujuanDone = userProgress.tujuan || userProgress['peta-konsep'];
+            const isMateriDone = userProgress.materi;
+            const isLabDone = userProgress.lab || userProgress.eksplorasi;
+            const isKuisDone = userProgress.kuis;
+            const isRefleksiDone = userProgress.refleksi;
+
+            // Update status icons
+            document.getElementById('st-tujuan').innerHTML = isTujuanDone ? '<i class="fas fa-check-circle text-green-600"></i> Selesai' : '<i class="fas fa-times-circle"></i> Belum';
+            document.getElementById('st-materi').innerHTML = isMateriDone ? '<i class="fas fa-check-circle text-green-600"></i> Selesai' : '<i class="fas fa-times-circle"></i> Belum';
+            document.getElementById('st-lab').innerHTML = isLabDone ? '<i class="fas fa-check-circle text-green-600"></i> Selesai' : '<i class="fas fa-times-circle"></i> Belum';
+            document.getElementById('st-kuis').innerHTML = isKuisDone ? '<i class="fas fa-check-circle text-green-600"></i> Selesai' : '<i class="fas fa-times-circle"></i> Belum';
+            document.getElementById('st-refleksi').innerHTML = isRefleksiDone ? '<i class="fas fa-check-circle text-green-600"></i> Selesai' : '<i class="fas fa-times-circle"></i> Belum';
+
+            const allDone = isTujuanDone && isMateriDone && isLabDone && isKuisDone && isRefleksiDone;
+
+            if (allDone) {
+                document.getElementById('cert-locked-card').classList.add('hidden');
+                document.getElementById('cert-unlocked-card').classList.remove('hidden');
+            } else {
+                document.getElementById('cert-locked-card').classList.remove('hidden');
+                document.getElementById('cert-unlocked-card').classList.add('hidden');
+            }
+        }
+
+        // Student Name Print Handler
+        document.addEventListener('DOMContentLoaded', () => {
+            renderQuiz();
+
+            const nameInput = document.getElementById('cert-student-name');
+            const namePrint = document.getElementById('cert-student-name-print');
+            if (nameInput && namePrint) {
+                nameInput.addEventListener('input', (e) => {
+                    namePrint.innerText = e.target.value || '[ Ketik Nama Lengkap Siswa Di Sini ]';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
